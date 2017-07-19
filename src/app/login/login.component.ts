@@ -13,6 +13,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm) {}
+  onSignin(form: NgForm) {
+    const username = form.value.username;
+    const password = form.value.password;
+    // TODO Check already existing username and password
+  }
 
 }

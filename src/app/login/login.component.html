@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(f)" #f>
+<form (ngSubmit)="onSignin(f)" #f="ngForm">
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
       <label>Username</label>
@@ -18,11 +18,11 @@
         name="password"
         id="password"
         class="form-control">
-      <br>
+      <br><br>
       <button
-        style="paddin: 5px;"
         class="btn btn-primary"
-        type="submit">Log In</button>
+        type="submit"
+        [disabled]="!f.valid">Log In</button>
     </div>
   </div>
 </form>

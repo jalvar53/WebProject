@@ -12,4 +12,8 @@ export class CreateImageComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUploadImage() {
+
+  }
+
 }

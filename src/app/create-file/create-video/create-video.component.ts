@@ -12,4 +12,8 @@ export class CreateVideoComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUploadVideo() {
+
+  }
+
 }

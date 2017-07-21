@@ -12,4 +12,8 @@ export class CreateFileComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUploadFile() {
+
+  }
+
 }

@@ -12,4 +12,7 @@ export class CreateAudioComponent implements OnInit {
   ngOnInit() {
   }
 
+  onUploadAudio() {
+
+  }
 }

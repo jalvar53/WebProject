@@ -1,14 +1,27 @@
 <div class="container">
-  <form (ngSubmit)="onUploadFile()" #f="ngForm">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
-        <label>File Name:</label>
+        <label>Media Type: </label>
+        <br>
+        <select
+          ngModel
+          required
+          class="form-control"
+          name="mediaType">
+          <option>Audio</option>
+          <option>Video</option>
+          <option>File</option>
+          <option>Image</option>
+        </select>
+        <br>
+        <label>Media Name:</label>
         <br>
         <input type="text"
                ngModel
                required
                class="form-control"
-               name="audioName">
+               name="mediaName">
         <br>
         <label>Description:</label>
         <br>
@@ -24,6 +37,14 @@
                required
                class="form-control"
                name="author">
+        <br>
+        <label>Genre:</label>
+        <br>
+        <input type="text"
+               ngModel
+               required
+               class="form-control"
+               name="genre">
         <br>
         <button
           class="btn btn-primary"

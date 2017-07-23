@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <label>Media Name:</label>
+    <br>
+    <p>{{ mediaObj.mediaName }}</p>
+    <br>
+    <label>Media Type:</label>
+    <br>
+    <p>{{ mediaObj.mediaType }}</p>
+    <br>
+    <label>Media Description:</label>
+    <br>
+    <p>{{ mediaObj.description }}</p>
+    <br>
+    <label>Media Author:</label>
+    <br>
+    <p>{{ mediaObj.author }}</p>
+    <br>
+    <label>Media Genre:</label>
+    <br>
+    <p>{{ mediaObj.genre }}</p>
+    <hr>
+    <div class="row">
+      <button
+        class="btn btn-primary"
+        (click)="onReturn()">Back</button>
+      <button
+        class="btn btn-primary"
+        (click)="onEditMedia()">Edit</button>
+    </div>
+  </div>
+</div>

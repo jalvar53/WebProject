@@ -14,20 +14,8 @@ export class CreateMediaComponent implements OnInit {
   ngOnInit() {
   }
 
-  onUploadAudio() {
-    this.router.navigate(['audio'], {relativeTo: this.route});
-  }
-
-  onUploadFile() {
-    this.router.navigate(['file'], {relativeTo: this.route});
-  }
-
-  onUploadImage() {
-    this.router.navigate(['image'], {relativeTo: this.route});
-  }
-
-  onUploadVideo() {
-    this.router.navigate(['video'], {relativeTo: this.route});
+  onUploadMedia() {
+    this.router.navigate(['media'], {relativeTo: this.route});
   }
 
 }

@@ -1,8 +1,21 @@
 <div class="container">
-  <form (ngSubmit)="onUploadAudio(f)" #f="ngForm">
+  <form (ngSubmit)="onUpload(f)" #f="ngForm">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
-        <label>Audio Name:</label>
+        <label>Media Type: </label>
+        <br>
+        <select
+          ngModel
+          required
+          class="form-control"
+          name="mediaType">
+          <option>Audio</option>
+          <option>Video</option>
+          <option>File</option>
+          <option>Image</option>
+        </select>
+        <br>
+        <label>Media Name:</label>
         <br>
         <input type="text"
           ngModel

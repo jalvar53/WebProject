@@ -1,8 +1,9 @@
 <a
   style="cursor: pointer"
-  class="list-group-item clearfix">
+  class="list-group-item clearfix"
+  [routerLink]="mediaObj.mediaName">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ mediaObj.mediaName }}</h4>
-    <p class="list-group-item-text">{{ mediaObj.description }}</p>
+    <p class="list-group-item-text">{{ mediaObj.author }}</p>
   </div>
 </a>

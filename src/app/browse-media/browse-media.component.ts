@@ -20,7 +20,7 @@ export class BrowseMediaComponent implements OnInit {
     setTimeout(
       () => {
         this.mediaListFull = this.mediaService.getMediaList();
-      }, 1000
+      }, 300
     );
   }
 
@@ -29,7 +29,7 @@ export class BrowseMediaComponent implements OnInit {
     setTimeout(
       () => {
         this.mediaListFull = this.mediaService.getMediaList();
-      }, 1000
+      }, 300
     );
   }
 

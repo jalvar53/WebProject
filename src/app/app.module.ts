@@ -10,16 +10,15 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 
 import { DataBaseService } from './shared/database.service';
-
-import { CreateImageComponent } from './create-file/create-image/create-image.component';
-import { CreateVideoComponent } from './create-file/create-video/create-video.component';
-import { CreateMediaComponent } from './create-file/create-media.component';
-import { CreateFileComponent } from './create-file/create-file/create-file.component';
-import { CreateAudioComponent } from './create-file/create-audio/create-audio.component';
+import { CreateNewContentComponent } from './create-file/create-new-content/create-new-content.component';
 import { HttpModule } from '@angular/http';
 import { BrowseMediaComponent } from './browse-media/browse-media.component';
 import { MediaService } from './shared/media.service';
-import { MediaListComponent } from './browse-media/media-item/media-item.component';
+import { MediaItemComponent } from './browse-media/media-item/media-item.component';
+import { MediaDetailComponent } from './browse-media/media-detail/media-detail.component';
+import { CreateMediaComponent } from './create-file/create-media.component';
+import { MediaEditComponent } from './browse-media/media-edit/media-edit.component';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   declarations: [
@@ -29,12 +28,11 @@ import { MediaListComponent } from './browse-media/media-item/media-item.compone
     CreateMediaComponent,
     HomeComponent,
     HeaderComponent,
-    CreateImageComponent,
-    CreateVideoComponent,
-    CreateFileComponent,
-    CreateAudioComponent,
+    CreateNewContentComponent,
     BrowseMediaComponent,
-    MediaListComponent
+    MediaItemComponent,
+    MediaDetailComponent,
+    MediaEditComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +40,7 @@ import { MediaListComponent } from './browse-media/media-item/media-item.compone
     AppRoutingModule,
     HttpModule
   ],
-  providers: [DataBaseService, MediaService],
+  providers: [DataBaseService, MediaService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

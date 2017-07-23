@@ -1,0 +1,15 @@
+<h1>Browse media uploaded by other users!</h1>
+<hr>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <app-media-list
+      *ngFor="let media of mediaListFull"
+      [mediaObj]="media"></app-media-list>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onRefresh()">Refresh</button>
+  </div>
+</div>

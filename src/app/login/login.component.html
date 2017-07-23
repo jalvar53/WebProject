@@ -1,5 +1,5 @@
 <div class="login-welcome">
-  <h1>Create a new account!</h1>
+  <h1>Sign in now!</h1>
 </div>
 
 <form (ngSubmit)="onSignin(f)" #f="ngForm">
@@ -10,6 +10,7 @@
       <input
         type="text"
         ngModel
+        required
         name="username"
         id="username"
         class="form-control">
@@ -19,6 +20,7 @@
       <input
         type="password"
         ngModel
+        required
         name="password"
         id="password"
         class="form-control">

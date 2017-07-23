@@ -8,11 +8,13 @@ import { CreateFileComponent } from './create-file/create-file/create-file.compo
 import { CreateVideoComponent } from './create-file/create-video/create-video.component';
 import { CreateAudioComponent } from './create-file/create-audio/create-audio.component';
 import { CreateMediaComponent } from './create-file/create-media.component';
+import { BrowseMediaComponent } from './browse-media/browse-media.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'browse', component: BrowseMediaComponent},
   {path: 'create-media', component: CreateMediaComponent},
   {path: 'create-media/image', component: CreateImageComponent},
   {path: 'create-media/video', component: CreateVideoComponent},

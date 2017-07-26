@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './account/register/register.component';
+import { LoginComponent } from './account/login/login.component';
+import { HomeComponent } from './core/home/home.component';
+import { HeaderComponent } from './core/header/header.component';
 import { FormsModule } from '@angular/forms';
 
 import { DataBaseService } from './shared/database.service';
@@ -19,6 +19,7 @@ import { MediaDetailComponent } from './browse-media/media-detail/media-detail.c
 import { CreateMediaComponent } from './create-file/create-media.component';
 import { MediaEditComponent } from './browse-media/media-edit/media-edit.component';
 import { UserService } from './shared/user.service';
+import { SettingsComponent } from './account/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserService } from './shared/user.service';
     BrowseMediaComponent,
     MediaItemComponent,
     MediaDetailComponent,
-    MediaEditComponent
+    MediaEditComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

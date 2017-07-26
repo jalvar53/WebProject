@@ -14,10 +14,15 @@ export class MediaService {
     this.mediaList.push(newMedia);
   }
 
-  /*updateMedia(newMedia: MediaModel) {
+  updateMedia(newMedia: MediaModel) {
     const index = this.mediaList.findIndex(x => x._id === newMedia._id);
     this.mediaList[index] = newMedia;
-  }*/
+  }
+
+  deleteMedia(newMedia: MediaModel) {
+    const index = this.mediaList.findIndex(x => x._id === newMedia._id);
+    this.mediaList[index] = newMedia;
+  }
 
   getMediaList() {
     return this.mediaList;
@@ -34,7 +39,6 @@ export class MediaService {
   findMediaByName(mediaName) {
     for (const media of this.mediaList) {
       if (media.mediaName === mediaName) {
-        console.log('The media that matches: ' + media.mediaName);
         return media;
       }
     }

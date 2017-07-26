@@ -46,7 +46,7 @@ export class MediaEditComponent implements OnInit {
       form.value.genre,
       form.value.mediaType
     );
-    this.databaseService.uploadMedia(data);
+    this.databaseService.editMedia(data);
     this.router.navigate(['/browse']);
   }
 

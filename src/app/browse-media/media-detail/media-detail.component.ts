@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MediaModel } from '../../shared/media.model';
 import { MediaService } from '../../shared/media.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataBaseService } from '../../shared/database.service';
 
 @Component({
   selector: 'app-media-detail',
@@ -15,6 +16,7 @@ export class MediaDetailComponent implements OnInit {
   id: string;
 
   constructor(private mediaService: MediaService,
+              private databaseService: DataBaseService,
               private router: Router,
               private route: ActivatedRoute) { }
 
@@ -36,6 +38,11 @@ export class MediaDetailComponent implements OnInit {
 
   onEditMedia() {
     this.router.navigate(['/edit'], {fragment: this.id});
+  }
+
+  onDeleteMedia() {
+    this.databaseService.deleteMedia(this.mediaObj);
+    this.router.navigate(['browse']);
   }
 
 }

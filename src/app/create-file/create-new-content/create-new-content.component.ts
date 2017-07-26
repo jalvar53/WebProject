@@ -20,7 +20,7 @@ export class CreateNewContentComponent implements OnInit {
 
   onUpload(form: NgForm) {
     const data = new MediaModel(
-      Guid.newGuid(),
+      Guid.newMediaGuid(),
       form.value.mediaName,
       form.value.description,
       form.value.author,

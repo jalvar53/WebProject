@@ -4,6 +4,7 @@ import { MediaModel } from './media.model';
 import 'rxjs/Rx';
 import { MediaService } from './media.service';
 import { UserService } from './user.service';
+import { User } from './user.model';
 
 @Injectable()
 export class DataBaseService {
@@ -15,8 +16,46 @@ export class DataBaseService {
   createUser(data) {
     this.http.post('http://localhost:3000/user/new', data)
       .subscribe(
-      (response: any) => {
+    (response: any) => {
           this.userService.addNewUser(data);
+          this.userService.login();
+        }
+      );
+  }
+
+  validateUser(username, password) {
+    this.http.get('http://localhost:3000/user/' + username)
+      .map(
+        (response: Response) => {
+          const user: User = response.json();
+          return user;
+        }
+      )
+      .subscribe(
+        (user: User) => {
+          this.userService.validateUsernameAndPassword(user, password);
+        });
+  }
+
+  editUser(data) {
+    this.http.put('http://localhost:3000/user/edit/' + data._id, data)
+      .subscribe(
+        (response: any) => {
+        this.userService.updateUser(data);
+    });
+  }
+
+  fetchAllUsers() {
+    this.http.get('http://localhost:3000/users')
+      .map(
+        (response: Response) => {
+          const users: User[] = response.json();
+          return users;
+        }
+      )
+      .subscribe(
+        (users: User[]) => {
+          this.userService.setUsers(users);
         }
       );
   }
@@ -30,14 +69,14 @@ export class DataBaseService {
     );
   }
 
-  /*editMedia(data) {
+  editMedia(data) {
     this.http.put('http://localhost:3000/media/' + data._id, data)
       .subscribe(
         (response: any) => {
           this.mediaService.updateMedia(data);
         }
       );
-  }*/
+  }
 
   fetchAllMedia() {
     this.http.get('http://localhost:3000/media')
@@ -55,10 +94,11 @@ export class DataBaseService {
   }
 
   deleteMedia(data) {
-    this.http.delete('http://localhost:3000/media/' + data.name)
+    this.http.delete('http://localhost:3000/media/' + data._id)
       .subscribe(
         (response: any) => {
           console.log(response);
+          this.mediaService.deleteMedia(data);
         }
       )
   }

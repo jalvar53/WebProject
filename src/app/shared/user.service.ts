@@ -5,11 +5,21 @@ import { User } from './user.model';
 export class UserService {
 
   public users = [];
+  public currentUser: User;
   public logged = false;
 
   addNewUser(data) {
     this.users.push(data);
     console.log(this.logged);
+  }
+
+  getCurrentUser() {
+    console.log(this.currentUser);
+    return this.currentUser;
+  }
+
+  getUsers() {
+    return this.users;
   }
 
   setUsers(users: User[]) {
@@ -18,8 +28,6 @@ export class UserService {
 
   findIdByUsername(username: string) {
     const index = this.users.findIndex(x => x.username === username);
-    console.log(this.users);
-    console.log(this.users[index]);
     return this.users[index];
   }
 
@@ -28,9 +36,17 @@ export class UserService {
     this.users[index] = updatedUser;
   }
 
+  deleteAccount(user: User) {
+    const index = this.users.findIndex(x => x._id === user._id);
+    this.users.splice(index, 1);
+  }
+
   validateUsernameAndPassword(user, password) {
+    console.log(user.password === password);
     if (user.password === password) {
       this.logged = true;
+    } else {
+      this.logged = false;
     }
   }
 
@@ -56,8 +72,9 @@ export class UserService {
     return this.logged;
   }
 
-  login() {
+  login(username) {
     this.logged = true;
+    this.currentUser = this.findIdByUsername(username);
   }
 
   logout() {

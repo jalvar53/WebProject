@@ -17,16 +17,21 @@ export class SettingsComponent {
               private userService: UserService,
               private router: Router) { }
 
+  onDeleteAccount() {
+    this.databaseService.removeUser(this.userService.getCurrentUser());
+    this.router.navigate(['/']);
+  }
+
   onEditAccount(form: NgForm) {
     const editee = this.userService.findIdByUsername(form.value.oldUsername);
 
     const editedAccount: User = {
-      _id: editee,
+      _id: editee._id,
       username: form.value.username,
       email: form.value.email,
       password: form.value.password
     }
     this.databaseService.editUser(editedAccount);
-    // this.router.navigate(['/browse']);
+    this.router.navigate(['/browse']);
   }
 }

@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     const emailExists = !this.userService.checkIfEmailExists(form.value.username);
     if (userExists && emailExists) {
       this.databaseService.createUser(user);
-      this.userService.login();
+      this.userService.login(user.username);
       this.router.navigate(['/browse']);
     } else {
       this.userAlreadyExists = true;

@@ -18,9 +18,20 @@ export class DataBaseService {
       .subscribe(
     (response: any) => {
           this.userService.addNewUser(data);
-          this.userService.login();
+          this.userService.login(data.username);
         }
       );
+  }
+
+  removeUser(data) {
+    // console.log(data._id);
+    this.http.delete('http://localhost:3000/user/edit/' + data._id)
+      .subscribe(
+        (response: any) => {
+          this.userService.deleteAccount(data);
+          this.userService.logout();
+        }
+      )
   }
 
   validateUser(username, password) {
@@ -33,11 +44,12 @@ export class DataBaseService {
       )
       .subscribe(
         (user: User) => {
-          this.userService.validateUsernameAndPassword(user, password);
+            this.userService.validateUsernameAndPassword(user, password);
         });
   }
 
   editUser(data) {
+    console.log('Data._id' + data._id);
     this.http.put('http://localhost:3000/user/edit/' + data._id, data)
       .subscribe(
         (response: any) => {

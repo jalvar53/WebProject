@@ -11,9 +11,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  userAlreadyExists = false;
-  emailAlreadyExists = false;
-
   constructor(private databaseService: DataBaseService,
               private userService: UserService,
               private router: Router) { }
@@ -24,14 +21,17 @@ export class LoginComponent implements OnInit {
   onSignin(form: NgForm) {
     const username = form.value.username;
     const password = form.value.password;
-    const userOk = this.databaseService.validateUser(username, password);
-    console.log(userOk);
-    if (userOk) {
-      this.userService.login();
-      this.router.navigate(['/browse']);
-    } else {
-      this.router.navigate(['/']);
-    }
+    this.databaseService.validateUser(username, password);
+    setTimeout(
+      () => {
+        const userOk = this.userService.isLogged();
+        if (userOk) {
+          this.userService.login(username);
+          this.router.navigate(['/browse']);
+        } else {
+          this.router.navigate(['/']);
+        }
+      }, 500);
   }
 
 }

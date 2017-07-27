@@ -1,6 +1,6 @@
 # Multimedia Manager
 
-By: Jose Luis Alvarez Herrera
+By: Jose Luis Alvarez Herrera - jalvar53@eafit.edu.co
 
 # 1. Descripción de la Aplicación:
 

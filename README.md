@@ -1,28 +1,48 @@
-# WebProject
+# Multimedia Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+By: Jose Luis Alvarez Herrera
 
-## Development server
+# 1. Descripción de la Aplicación:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) en la versión 1.2.0.
 
-## Code scaffolding
+Aplicación web que permite gestionar archivos multimedia.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+$ ng new --project-name
 
-## Build
+(este generador, crea una app base ejemplo para Angular 2)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+# 2. Análisis
 
-## Running unit tests
+## 2.1 Requisitos Funcionales:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Crear, actualizar, borrar y leer archivos multimedia.
+2. Buscar archivos multimedia por nombre.
+3. Crear, actualizar y eliminar la cuenta propia del usuario.
+4. Autenticarse contra la base de datos.
 
-## Running end-to-end tests
+## 2.2 Definición de tecnología de desarrollo y ejecución para la aplicación:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+* Lenguaje de Programación: TypeScript
+* Framework web Backend: NodeJS - Express
+* Framework web Frontend: Angular 2
+* Base de Datos: MongoDB
+* Web App Server: NodeJS
+* Web Server: Apache Web Server
 
-## Further help
+## Ambiente de Desarrollo, Pruebas y Producción:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Desarrollo:
+
+## Pruebas:
+
+# 3. Diseño:
+
+## 3.1 Modelo de Datos:
+
+## 3.2 Servicios Web:
+
+# 4. Desarrollo:
+
+# 5. Implementación o Despliegue
+

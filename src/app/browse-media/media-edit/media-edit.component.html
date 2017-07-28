@@ -47,6 +47,18 @@
                class="form-control"
                name="genre">
         <br>
+        <label>Privacy:</label>
+        <br>
+        <select
+          ngModel
+          required
+          class="form-control"
+          name="privacy"
+          [ngModel]="editee.privacy">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+        <br>
         <button
           class="btn btn-primary"
           type="submit">Upload</button>

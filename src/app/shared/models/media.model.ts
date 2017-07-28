@@ -6,5 +6,6 @@ export class MediaModel {
               public url: string,
               public description: string,
               public author: string,
-              public genre: string) {}
+              public genre: string,
+              public privacy: string) {}
 }

@@ -25,7 +25,8 @@ export class CreateNewContentComponent implements OnInit {
       form.value.url,
       form.value.description,
       form.value.author,
-      form.value.genre
+      form.value.genre,
+      form.value.privacy
     );
     this.databaseService.uploadMedia(data);
     this.router.navigate(['/browse']);

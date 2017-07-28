@@ -42,7 +42,8 @@ export class MediaEditComponent implements OnInit {
       form.value.url,
       form.value.description,
       form.value.author,
-      form.value.genre
+      form.value.genre,
+      form.value.privacy
     );
     this.databaseService.editMedia(data);
     this.router.navigate(['/browse']);

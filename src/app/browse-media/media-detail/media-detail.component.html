@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="mediaObj.url"
+      alt="{{ mediaObj.mediaName }}"
+      class="img-responsive"
+      style="max-height: 300px;
+       display: block;
+       margin: 0 auto;">
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <label>Image Name:</label>
+    <br>
+    <p>{{ mediaObj.mediaName }}</p>
+    <br>
+    <label>Image URL:</label>
+    <br>
+    <p>{{ mediaObj.url}}</p>
+    <br>
+    <label>Image Description:</label>
+    <br>
+    <p>{{ mediaObj.description }}</p>
+    <br>
+    <label>Image Author:</label>
+    <br>
+    <p>{{ mediaObj.author }}</p>
+    <br>
+    <label>Image Genre:</label>
+    <br>
+    <p>{{ mediaObj.genre }}</p>
+    <hr>
+    <div class="row">
+      <button
+        class="btn btn-primary"
+        (click)="onReturn()">Back</button>
+      <button
+        class="btn btn-primary"
+        (click)="onEditMedia()">Edit</button>
+      <button
+        class="btn btn-primary"
+        (click)="onDeleteMedia()">Delete</button>
+    </div>
+  </div>
+</div>

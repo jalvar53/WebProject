@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand">Home</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <ng-template [ngIf]="!userService.isLogged()">
+          <li routerLinkActive="active"><a routerLink="login">Log In</a></li>
+          <li routerLinkActive="active"><a routerLink="register">Register</a></li>
+        </ng-template>
+        <ng-template [ngIf]="userService.isLogged()">
+          <li routerLinkActive="active"><a routerLink="create-media">Upload Image</a></li>
+          <li routerLinkActive="active"><a routerLink="browse">Browse Image</a></li>
+        </ng-template>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active"
+            *ngIf="userService.isLogged()" (click)="onConfigure()"><a routerLink="settings">Settings</a></li>
+        <li routerLinkActive="active"
+            *ngIf="userService.isLogged()" (click)="onLogout()"><a routerLink="home">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

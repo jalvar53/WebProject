@@ -2,30 +2,29 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="row">
       <div class="col-xs-4 col-xs-offset-4">
-        <label>Media Type: </label>
-        <br>
-        <select
-          ngModel
-          required
-          class="form-control"
-          name="mediaType">
-          <option>Audio</option>
-          <option>Video</option>
-          <option>File</option>
-          <option>Image</option>
-        </select>
-        <br>
-        <label>Media Name:</label>
+        <label>Image Name:</label>
         <br>
         <input type="text"
+               [ngModel]="editee.mediaName"
                ngModel
                required
                class="form-control"
                name="mediaName">
         <br>
+        <label>Image URL:</label>
+        <br>
+        <input
+          type="text"
+          [ngModel]="editee.url"
+          ngModel
+          required
+          class="form-control"
+          name="url">
+        <br>
         <label>Description:</label>
         <br>
         <input type="text"
+               [ngModel]="editee.description"
                ngModel
                class="form-control"
                name="description">
@@ -33,6 +32,7 @@
         <label>Author:</label>
         <br>
         <input type="text"
+               [ngModel]="editee.author"
                ngModel
                required
                class="form-control"
@@ -42,6 +42,7 @@
         <br>
         <input type="text"
                ngModel
+               [ngModel]="editee.genre"
                required
                class="form-control"
                name="genre">
@@ -49,6 +50,9 @@
         <button
           class="btn btn-primary"
           type="submit">Upload</button>
+        <button
+          class="btn btn-danger"
+          (click)="onCancel()">Cancel</button>
       </div>
     </div>
   </form>

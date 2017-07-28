@@ -1,5 +1,9 @@
 /*tslint bitwise: false*/
 
+/*
+  Generated GUID using https://github.com/Steve-Fenton/TypeScriptUtilities implementation
+ */
+
 export class Guid {
 
   static newMediaGuid() {

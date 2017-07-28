@@ -1,6 +1,26 @@
-<h1>Browse media uploaded by other users!</h1>
+<h1>Browse images uploaded by other users!</h1>
 <hr>
 <div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          (click)="onSearch()">Search!</button>
+      </span>
+      <input type="text" class="form-control" placeholder="Search for..." #search>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row" *ngIf="searchClicked">
+  <div class="col-xs-6 col-xs-offset-3">
+    <app-media-item
+      [mediaObj]="searchedItem"></app-media-item>
+  </div>
+</div>
+<div class="row" *ngIf="!searchClicked">
   <div class="col-xs-6 col-xs-offset-3">
     <app-media-item
       *ngFor="let media of mediaListFull"

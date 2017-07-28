@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataBaseService } from '../../shared/database.service';
+import { DataBaseService } from '../../shared/services/database.service';
 import { NgForm } from '@angular/forms';
-import { MediaModel } from '../../shared/media.model';
-import { Guid } from '../../shared/guid.model';
+import { MediaModel } from '../../shared/models/media.model';
+import { Guid } from '../../shared/models/guid.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,10 +22,10 @@ export class CreateNewContentComponent implements OnInit {
     const data = new MediaModel(
       Guid.newMediaGuid(),
       form.value.mediaName,
+      form.value.url,
       form.value.description,
       form.value.author,
-      form.value.genre,
-      form.value.mediaType
+      form.value.genre
     );
     this.databaseService.uploadMedia(data);
     this.router.navigate(['/browse']);

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaModel } from '../../shared/media.model';
-import { MediaService } from '../../shared/media.service';
+import { MediaModel } from '../../shared/models/media.model';
+import { MediaService } from '../../shared/services/media.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { DataBaseService } from '../../shared/database.service';
+import { DataBaseService } from '../../shared/services/database.service';
 
 @Component({
   selector: 'app-media-detail',

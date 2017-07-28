@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../../shared/user.model';
-import { Guid } from '../../shared/guid.model';
-import { DataBaseService } from '../../shared/database.service';
+import { User } from '../../shared/models/user.model';
+import { Guid } from '../../shared/models/guid.model';
+import { DataBaseService } from '../../shared/services/database.service';
 import { Router } from '@angular/router';
-import { UserService } from '../../shared/user.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-register',

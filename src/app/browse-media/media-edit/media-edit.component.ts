@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DataBaseService } from '../../shared/database.service';
-import { MediaModel } from '../../shared/media.model';
+import { DataBaseService } from '../../shared/services/database.service';
+import { MediaModel } from '../../shared/models/media.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Guid } from '../../shared/guid.model';
+import { Guid } from '../../shared/models/guid.model';
+import { MediaService } from '../../shared/services/media.service';
 
 @Component({
   selector: 'app-media-edit',
@@ -12,39 +13,36 @@ import { Guid } from '../../shared/guid.model';
 })
 export class MediaEditComponent implements OnInit {
 
-  editee: string;
+  currentMediaId: string;
+  editee: MediaModel;
 
   constructor(private databaseService: DataBaseService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private mediaService: MediaService) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.editee = params['name'];
-        }
-      );
-  }
-
-  getUrlFragment() {
     this.route.fragment.subscribe(
       (fragment: string) => {
-        this.editee = fragment;
+        this.currentMediaId = fragment;
+        this.getUrlFragment();
       }
     );
   }
 
+  getUrlFragment() {
+    this.editee = this.mediaService.findMediaById(this.currentMediaId);
+  }
+
   onSubmit(form: NgForm) {
-    this.getUrlFragment();
 
     const data = new MediaModel(
-      this.editee,
+      this.currentMediaId,
       form.value.mediaName,
+      form.value.url,
       form.value.description,
       form.value.author,
-      form.value.genre,
-      form.value.mediaType
+      form.value.genre
     );
     this.databaseService.editMedia(data);
     this.router.navigate(['/browse']);

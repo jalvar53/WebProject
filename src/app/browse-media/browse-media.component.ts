@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MediaService } from '../shared/media.service';
-import { MediaModel } from '../shared/media.model';
-import { DataBaseService } from '../shared/database.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MediaService } from '../shared/services/media.service';
+import { MediaModel } from '../shared/models/media.model';
+import { DataBaseService } from '../shared/services/database.service';
 
 @Component({
   selector: 'app-browse-media',
@@ -11,6 +11,9 @@ import { DataBaseService } from '../shared/database.service';
 export class BrowseMediaComponent implements OnInit {
 
   mediaListFull: MediaModel[];
+  searchedItem: MediaModel;
+  searchClicked = false;
+  @ViewChild('search') searchValue: any;
 
   constructor(private mediaService: MediaService,
               private databaseService: DataBaseService) { }
@@ -31,6 +34,14 @@ export class BrowseMediaComponent implements OnInit {
         this.mediaListFull = this.mediaService.getMediaList();
       }, 300
     );
+    this.searchClicked = false;
+  }
+
+  onSearch() {
+    this.searchClicked = true;
+    const value = this.searchValue.nativeElement.value;
+    this.databaseService.getMediaByName(value);
+    this.searchedItem = this.mediaService.getOneMedia(value);
   }
 
 }

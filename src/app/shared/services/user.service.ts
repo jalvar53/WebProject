@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class UserService {
 
   public users = [];
   public currentUser: User;
-  public logged = false;
+  public logged = true;
 
   addNewUser(data) {
     this.users.push(data);

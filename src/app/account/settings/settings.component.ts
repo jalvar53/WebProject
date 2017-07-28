@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Guid } from '../../shared/guid.model';
-import { User } from '../../shared/user.model';
-import { DataBaseService } from '../../shared/database.service';
+import { Guid } from '../../shared/models/guid.model';
+import { User } from '../../shared/models/user.model';
+import { DataBaseService } from '../../shared/services/database.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { UserService } from '../../shared/user.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-settings',
@@ -27,7 +27,7 @@ export class SettingsComponent {
 
     const editedAccount: User = {
       _id: editee._id,
-      username: form.value.username,
+      username: form.value.oldUsername,
       email: form.value.email,
       password: form.value.password
     }

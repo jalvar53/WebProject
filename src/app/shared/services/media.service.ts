@@ -1,13 +1,18 @@
-import { MediaModel } from './media.model';
+import { MediaModel } from '../models/media.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MediaService {
 
   private mediaList: MediaModel[] = [];
+  private searchedMedia: MediaModel;
 
   setMediaList(media) {
     this.mediaList = media;
+  }
+
+  setOneMedia(media) {
+    this.searchedMedia = media;
   }
 
   addMedia(newMedia: MediaModel) {
@@ -21,11 +26,16 @@ export class MediaService {
 
   deleteMedia(newMedia: MediaModel) {
     const index = this.mediaList.findIndex(x => x._id === newMedia._id);
-    this.mediaList[index] = newMedia;
+    this.mediaList.slice(index, 1);
   }
 
   getMediaList() {
     return this.mediaList;
+  }
+
+  findMediaById(_id: string) {
+    const index = this.mediaList.findIndex(x => x._id === _id);
+    return this.mediaList[index];
   }
 
   findIdByName(name: string) {

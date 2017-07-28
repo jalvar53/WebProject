@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MediaModel } from '../../shared/media.model';
+import { MediaModel } from '../../shared/models/media.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-media-item',
@@ -10,9 +11,13 @@ export class MediaItemComponent implements OnInit {
 
   @Input() mediaObj: MediaModel;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onCancel() {
+    this.router.navigate(['/browse']);
   }
 
 }

@@ -1,10 +1,10 @@
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { MediaModel } from './media.model';
+import { MediaModel } from '../models/media.model';
 import 'rxjs/Rx';
 import { MediaService } from './media.service';
 import { UserService } from './user.service';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class DataBaseService {
@@ -101,6 +101,21 @@ export class DataBaseService {
       .subscribe(
         (media: MediaModel[]) => {
           this.mediaService.setMediaList(media);
+        }
+      );
+  }
+
+  getMediaByName(searchValue: string) {
+    this.http.get('http://localhost:3000/media/byName/' + searchValue)
+      .map(
+        (response: Response) => {
+          const media: MediaModel = response.json();
+          return media
+        }
+      )
+      .subscribe(
+        (media: MediaModel) => {
+          this.mediaService.setOneMedia(media);
         }
       );
   }

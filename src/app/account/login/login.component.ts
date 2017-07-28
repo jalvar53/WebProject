@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DataBaseService } from '../../shared/database.service';
-import { UserService } from '../../shared/user.service';
+import { DataBaseService } from '../../shared/services/database.service';
+import { UserService } from '../../shared/services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,10 +28,9 @@ export class LoginComponent implements OnInit {
         if (userOk) {
           this.userService.login(username);
           this.router.navigate(['/browse']);
-        } else {
-          this.router.navigate(['/']);
+        } else {this.router.navigate(['/']);
         }
-      }, 500);
+      }, 300);
   }
 
 }

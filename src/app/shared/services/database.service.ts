@@ -14,7 +14,7 @@ export class DataBaseService {
               private userService: UserService) {}
 
   createUser(data) {
-    this.http.post('http://localhost:3002/user/new', data)
+    this.http.post('https://intermediate-animal-server.herokuapp.com/user/new', data)
       .subscribe(
     (response: any) => {
           this.userService.addNewUser(data);
@@ -25,7 +25,7 @@ export class DataBaseService {
 
   removeUser(data) {
     // console.log(data._id);
-    this.http.delete('http://localhost:3002/user/edit/' + data._id)
+    this.http.delete('https://intermediate-animal-server.herokuapp.com/user/edit/' + data._id)
       .subscribe(
         (response: any) => {
           this.userService.deleteAccount(data);
@@ -35,7 +35,7 @@ export class DataBaseService {
   }
 
   validateUser(username, password) {
-    this.http.get('http://localhost:3002/user/' + username)
+    this.http.get('https://intermediate-animal-server.herokuapp.com/user/' + username)
       .map(
         (response: Response) => {
           const user: User = response.json();
@@ -52,7 +52,7 @@ export class DataBaseService {
 
   editUser(data) {
     console.log('Data._id' + data._id);
-    this.http.put('http://localhost:3002/user/edit/' + data._id, data)
+    this.http.put('https://intermediate-animal-server.herokuapp.com/user/edit/' + data._id, data)
       .subscribe(
         (response: any) => {
         this.userService.updateUser(data);
@@ -60,7 +60,7 @@ export class DataBaseService {
   }
 
   fetchAllUsers() {
-    this.http.get('http://localhost:3002/users')
+    this.http.get('https://intermediate-animal-server.herokuapp.com/users')
       .map(
         (response: Response) => {
           const users: User[] = response.json();
@@ -75,7 +75,7 @@ export class DataBaseService {
   }
 
   uploadMedia(data) {
-    this.http.post('http://localhost:3002/create-media/media/new', data)
+    this.http.post('https://intermediate-animal-server.herokuapp.com/create-media/media/new', data)
       .subscribe(
       (response: any) => {
         this.mediaService.addMedia(data);
@@ -84,7 +84,7 @@ export class DataBaseService {
   }
 
   editMedia(data) {
-    this.http.put('http://https://localhost:3002/media/' + data._id, data)
+    this.http.put('https://intermediate-animal-server.herokuapp.com/media/' + data._id, data)
       .subscribe(
         (response: any) => {
           this.mediaService.updateMedia(data);
@@ -93,7 +93,7 @@ export class DataBaseService {
   }
 
   fetchAllMedia() {
-    this.http.get('http://localhost:3002/media')
+    this.http.get('https://intermediate-animal-server.herokuapp.com/media')
       .map(
         (response: Response) => {
           const media: MediaModel[] = response.json();
@@ -108,7 +108,7 @@ export class DataBaseService {
   }
 
   getMediaByName(searchValue: string) {
-    this.http.get('http://localhost:3002/media/byName/' + searchValue)
+    this.http.get('https://intermediate-animal-server.herokuapp.com/media/byName/' + searchValue)
       .map(
         (response: Response) => {
           const media: MediaModel = response.json();
@@ -123,7 +123,7 @@ export class DataBaseService {
   }
 
   deleteMedia(data) {
-    this.http.delete('http://localhost:3002/media/' + data._id)
+    this.http.delete('https://intermediate-animal-server.herokuapp.com/media/' + data._id)
       .subscribe(
         (response: any) => {
           console.log(response);

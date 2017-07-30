@@ -1,0 +1,71 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <label>Image Name:</label>
+        <br>
+        <input type="text"
+               [ngModel]="editee.mediaName"
+               ngModel
+               required
+               class="form-control"
+               name="mediaName">
+        <br>
+        <label>Image URL:</label>
+        <br>
+        <input
+          type="text"
+          [ngModel]="editee.url"
+          ngModel
+          required
+          class="form-control"
+          name="url">
+        <br>
+        <label>Description:</label>
+        <br>
+        <input type="text"
+               [ngModel]="editee.description"
+               ngModel
+               class="form-control"
+               name="description">
+        <br>
+        <label>Author:</label>
+        <br>
+        <input type="text"
+               [ngModel]="editee.author"
+               ngModel
+               required
+               class="form-control"
+               name="author">
+        <br>
+        <label>Genre:</label>
+        <br>
+        <input type="text"
+               ngModel
+               [ngModel]="editee.genre"
+               required
+               class="form-control"
+               name="genre">
+        <br>
+        <label>Privacy:</label>
+        <br>
+        <select
+          ngModel
+          required
+          class="form-control"
+          name="privacy"
+          [ngModel]="editee.privacy">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+        <br>
+        <button
+          class="btn btn-primary"
+          type="submit">Upload</button>
+        <button
+          class="btn btn-danger"
+          (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

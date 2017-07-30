@@ -49,4 +49,8 @@ export class MediaEditComponent implements OnInit {
     this.router.navigate(['/browse']);
   }
 
+  onCancel() {
+    this.router.navigate(['/browse']);
+  }
+
 }

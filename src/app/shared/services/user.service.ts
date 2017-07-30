@@ -6,7 +6,7 @@ export class UserService {
 
   public users = [];
   public currentUser: User;
-  public logged = true;
+  public logged = false;
 
   addNewUser(data) {
     this.users.push(data);

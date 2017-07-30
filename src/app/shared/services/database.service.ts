@@ -48,6 +48,8 @@ export class DataBaseService {
         });
   }
 
+  // https://intermediate-animal-server.herokuapp.com
+
   editUser(data) {
     console.log('Data._id' + data._id);
     this.http.put('http://localhost:3002/user/edit/' + data._id, data)
@@ -82,7 +84,7 @@ export class DataBaseService {
   }
 
   editMedia(data) {
-    this.http.put('http://localhost:3002/media/' + data._id, data)
+    this.http.put('http://https://localhost:3002/media/' + data._id, data)
       .subscribe(
         (response: any) => {
           this.mediaService.updateMedia(data);

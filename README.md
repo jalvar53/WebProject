@@ -49,6 +49,7 @@ $ ng new --project-name
   git checkout dev
   cd ..
   mkdir IntermediateServer
+  cd IntermediateServer
   git clone https://github.com/jalvar53/web-intermediate-server.git  
 ```
 

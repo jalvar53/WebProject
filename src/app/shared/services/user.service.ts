@@ -42,6 +42,7 @@ export class UserService {
   validateUsernameAndPassword(user, password) {
     if (user.password === password) {
       this.logged = true;
+      this.currentUser = user;
     } else {
       this.logged = false;
     }

@@ -5,6 +5,8 @@ import { MediaModel } from '../../shared/models/media.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Guid } from '../../shared/models/guid.model';
 import { MediaService } from '../../shared/services/media.service';
+import { User } from '../../shared/models/user.model';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-media-edit',
@@ -15,8 +17,10 @@ export class MediaEditComponent implements OnInit {
 
   currentMediaId: string;
   editee: MediaModel;
+  currentUser: User;
 
   constructor(private databaseService: DataBaseService,
+              private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
               private mediaService: MediaService) { }
@@ -28,6 +32,7 @@ export class MediaEditComponent implements OnInit {
         this.getUrlFragment();
       }
     );
+    this.currentUser = this.userService.getCurrentUser();
   }
 
   getUrlFragment() {
@@ -41,7 +46,7 @@ export class MediaEditComponent implements OnInit {
       form.value.mediaName,
       form.value.url,
       form.value.description,
-      form.value.author,
+      this.currentUser.username,
       form.value.genre,
       form.value.privacy
     );

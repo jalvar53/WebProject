@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MediaService } from '../shared/services/media.service';
 import { MediaModel } from '../shared/models/media.model';
 import { DataBaseService } from '../shared/services/database.service';
+import { UserService } from '../shared/services/user.service';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-browse-media',
@@ -12,11 +14,13 @@ export class BrowseMediaComponent implements OnInit {
 
   mediaListFull: MediaModel[];
   searchedItem: MediaModel;
+  currentUser: User;
   searchClicked = false;
   @ViewChild('search') searchValue: any;
 
   constructor(private mediaService: MediaService,
-              private databaseService: DataBaseService) { }
+              private databaseService: DataBaseService,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.databaseService.fetchAllMedia();
@@ -25,6 +29,7 @@ export class BrowseMediaComponent implements OnInit {
         this.mediaListFull = this.mediaService.getMediaList();
       }, 300
     );
+    this.currentUser = this.userService.getCurrentUser();
   }
 
   onRefresh() {

@@ -6,7 +6,7 @@ export class UserService {
 
   public users = [];
   public currentUser: User;
-  public logged = true;
+  public logged = false;
 
   addNewUser(data) {
     this.users.push(data);
@@ -14,7 +14,6 @@ export class UserService {
   }
 
   getCurrentUser() {
-    console.log(this.currentUser);
     return this.currentUser;
   }
 
@@ -45,6 +44,8 @@ export class UserService {
     console.log(user.password === password);
     if (user.password === password) {
       this.logged = true;
+      this.currentUser = user;
+      console.log('Aca asigno a current user a ' + user);
     } else {
       this.logged = false;
     }

@@ -24,7 +24,7 @@
   <div class="col-xs-6 col-xs-offset-3">
     <div *ngFor="let media of mediaListFull">
       <app-media-item
-        *ngIf="media.privacy === 'public'"
+        *ngIf="(media.privacy === 'public') || (media.privacy === 'private' && media.author === currentUser.username)"
         [mediaObj]="media"></app-media-item>
     </div>
   </div>

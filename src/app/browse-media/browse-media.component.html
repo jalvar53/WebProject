@@ -22,11 +22,9 @@
 </div>
 <div class="row" *ngIf="!searchClicked">
   <div class="col-xs-6 col-xs-offset-3">
-    <div *ngFor="let media of mediaListFull">
-      <app-media-item
-        *ngIf="media.privacy === 'public'"
-        [mediaObj]="media"></app-media-item>
-    </div>
+    <app-media-item
+      *ngFor="let media of mediaListFull"
+      [mediaObj]="media"></app-media-item>
   </div>
 </div>
 <hr>

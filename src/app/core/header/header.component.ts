@@ -17,8 +17,4 @@ export class HeaderComponent {
     this.router.navigate(['/']);
   }
 
-  onConfigure() {
-    this.router.navigate(['/settings']);
-  }
-
 }

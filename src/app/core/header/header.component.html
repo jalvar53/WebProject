@@ -17,7 +17,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active"
-            *ngIf="userService.isLogged()" (click)="onConfigure()"><a routerLink="settings">Settings</a></li>
+            *ngIf="userService.isLogged()"><a routerLink="settings">Settings</a></li>
         <li routerLinkActive="active"
             *ngIf="userService.isLogged()" (click)="onLogout()"><a routerLink="home">Logout</a></li>
       </ul>

@@ -24,7 +24,6 @@ export class DataBaseService {
   }
 
   removeUser(data) {
-    // console.log(data._id);
     this.http.delete('https://intermediate-animal-server.herokuapp.com/user/edit/' + data._id)
       .subscribe(
         (response: any) => {
@@ -51,7 +50,6 @@ export class DataBaseService {
   // https://intermediate-animal-server.herokuapp.com
 
   editUser(data) {
-    console.log('Data._id' + data._id);
     this.http.put('https://intermediate-animal-server.herokuapp.com/user/edit/' + data._id, data)
       .subscribe(
         (response: any) => {
@@ -126,7 +124,6 @@ export class DataBaseService {
     this.http.delete('https://intermediate-animal-server.herokuapp.com/media/' + data._id)
       .subscribe(
         (response: any) => {
-          console.log(response);
           this.mediaService.deleteMedia(data);
         }
       )

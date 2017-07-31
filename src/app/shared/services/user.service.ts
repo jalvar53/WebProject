@@ -10,11 +10,9 @@ export class UserService {
 
   addNewUser(data) {
     this.users.push(data);
-    console.log(this.logged);
   }
 
   getCurrentUser() {
-    console.log(this.currentUser);
     return this.currentUser;
   }
 
@@ -42,7 +40,6 @@ export class UserService {
   }
 
   validateUsernameAndPassword(user, password) {
-    console.log(user.password === password);
     if (user.password === password) {
       this.logged = true;
     } else {

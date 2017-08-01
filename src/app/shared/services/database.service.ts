@@ -14,7 +14,7 @@ export class DataBaseService {
               private userService: UserService) {}
 
   createUser(data) {
-    this.http.post('https://intermediate-animal-server.herokuapp.com/user/new', data)
+    this.http.post('http://10.131.137.157:3002/user/new', data)
       .subscribe(
     (response: any) => {
           this.userService.addNewUser(data);
@@ -24,7 +24,7 @@ export class DataBaseService {
   }
 
   removeUser(data) {
-    this.http.delete('https://intermediate-animal-server.herokuapp.com/user/edit/' + data._id)
+    this.http.delete('http://10.131.137.157:3002/user/edit/' + data._id)
       .subscribe(
         (response: any) => {
           this.userService.deleteAccount(data);
@@ -34,7 +34,7 @@ export class DataBaseService {
   }
 
   validateUser(username, password) {
-    this.http.get('https://intermediate-animal-server.herokuapp.com/user/' + username)
+    this.http.get('http://10.131.137.157:3002/user/' + username)
       .map(
         (response: Response) => {
           const user: User = response.json();
@@ -47,10 +47,10 @@ export class DataBaseService {
         });
   }
 
-  // https://intermediate-animal-server.herokuapp.com
+  // http://10.131.137.157:3002
 
   editUser(data) {
-    this.http.put('https://intermediate-animal-server.herokuapp.com/user/edit/' + data._id, data)
+    this.http.put('http://10.131.137.157:3002/user/edit/' + data._id, data)
       .subscribe(
         (response: any) => {
         this.userService.updateUser(data);
@@ -58,7 +58,7 @@ export class DataBaseService {
   }
 
   fetchAllUsers() {
-    this.http.get('https://intermediate-animal-server.herokuapp.com/users')
+    this.http.get('http://10.131.137.157:3002/users')
       .map(
         (response: Response) => {
           const users: User[] = response.json();
@@ -73,7 +73,7 @@ export class DataBaseService {
   }
 
   uploadMedia(data) {
-    this.http.post('https://intermediate-animal-server.herokuapp.com/create-media/media/new', data)
+    this.http.post('http://10.131.137.157:3002/create-media/media/new', data)
       .subscribe(
       (response: any) => {
         this.mediaService.addMedia(data);
@@ -82,7 +82,7 @@ export class DataBaseService {
   }
 
   editMedia(data) {
-    this.http.put('https://intermediate-animal-server.herokuapp.com/media/' + data._id, data)
+    this.http.put('http://10.131.137.157:3002/media/' + data._id, data)
       .subscribe(
         (response: any) => {
           this.mediaService.updateMedia(data);
@@ -91,7 +91,7 @@ export class DataBaseService {
   }
 
   fetchAllMedia() {
-    this.http.get('https://intermediate-animal-server.herokuapp.com/media')
+    this.http.get('http://10.131.137.157:3002/media')
       .map(
         (response: Response) => {
           const media: MediaModel[] = response.json();
@@ -106,7 +106,7 @@ export class DataBaseService {
   }
 
   getMediaByName(searchValue: string) {
-    this.http.get('https://intermediate-animal-server.herokuapp.com/media/byName/' + searchValue)
+    this.http.get('http://10.131.137.157:3002/media/byName/' + searchValue)
       .map(
         (response: Response) => {
           const media: MediaModel = response.json();
@@ -121,7 +121,7 @@ export class DataBaseService {
   }
 
   deleteMedia(data) {
-    this.http.delete('https://intermediate-animal-server.herokuapp.com/media/' + data._id)
+    this.http.delete('http://10.131.137.157:3002/media/' + data._id)
       .subscribe(
         (response: any) => {
           this.mediaService.deleteMedia(data);

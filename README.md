@@ -176,51 +176,204 @@ media {
 /* Servicio Web: Inserta un registro de usuario a la base de datos
 Método: POST
 URI: /user/new
+
+Datos Petición: 
+
+  {
+       "_id": [_id],
+       "username": [username],
+       "password": [password],
+       "email": [email]
+   }
+
+Datos Respuesta:
+
+  {
+    message: 'ok'
+  }
+
 */
 
 /* Servicio Web: Revisa si un usuario existe en la base de datos
 Método: GET
 URI: /user/:username
+
+Datos Petición: /user/:username
+
+Datos Respuesta:
+
+  {
+    "_id": [userId],
+    "username": [enteredUsername],
+    "password": [enteredPassword],
+    "email": [enteredEmail],
+    "__v": 0
+  }
+  
 */
 
 /* Servicio Web: Remueve un registro de usuario de la base de datos
 Método: DELETE
 URI: /user/edit/:_id
+
+Datos Petición: /user/edit/:_id
+
+Datos Respuesta:
+
+  {
+    message: 'ok'
+  }
+
 */
 
 /* Servicio Web: Actualiza un registro de usuario de la base de datos
 Método: PUT
 URI: /user/edit/:_id
+
+Datos Petición: 
+
+  {
+       "_id": [_id],
+       "username": [username],
+       "password": [password],
+       "email": [email]
+   }
+   
+Datos Respuesta:
+
+  {
+       "_id": [_id],
+       "username": [username],
+       "password": [password],
+       "email": [newEmail]
+   }
+   
 */
 
 /* Servicio Web: Retorna una lista de todos los registros de imagenes de la base de datos
 Método: GET
 URI: /media
+
+Datos Petición: /media
+
+Datos Respuesta: 
+
+Lista de JSON en la forma
+
+[
+  {
+    _id: String,
+    mediaName: String,
+    url: String,
+    description: String,
+    author: String,
+    genre: String,
+    privacy: String
+  }
+]
+
 */
 
 /* Servicio Web: Inserta un registro de imagen a la base de datos
 Método: POST
 URI: /create-media/media/new
+
+Datos Petición: /create-media/media/new
+
+  {
+    _id: [_id],
+    mediaName: [mediaName],
+    url: [url],
+    description: [description],
+    author: [author],
+    genre: [genre],
+    privacy: [privacy]
+  },
+
+Datos Respuesta:
+
+  {
+    message: 'ok'
+  }
+  
 */
 
 /* Servicio Web: Retorna un registro de imagen de la base de datos
 Método: GET
 URI: /media/:_id
+
+Datos Petición: /media/:_id
+
+Datos Respuesta:
+
+  {
+    _id: [_id],
+    mediaName: [mediaName],
+    url: [url],
+    description: [description],
+    author: [author],
+    genre: [genre],
+    privacy: [privacy]
+  }
+  
 */
 
 /* Servicio Web: Actualiza un registro de imagen a la base de datos
 Método: PUT
 URI: /media/:_id
+
+Datos Petición: /media/:_id
+
+Datos Respuesta:
+ 
+ {
+    _id: [_id],
+    mediaName: [newMediaName],
+    url: [newUrl],
+    description: [newDescription],
+    author: [author],
+    genre: [newGenre],
+    privacy: [newPrivacy]
+  }
+
 */
 
 /* Servicio Web: Remueve un registro de imagen a la base de datos
 Método: DELETE
 URI: /media/:_id
+
+Datos Petición: 
+
+  {
+    _id: [_id],
+  }
+
+Datos Respuesta:
+
+  {
+    message: 'ok'
+  }
+  
 */
 
 /* Servicio Web: Retorna un registro de imagen por nombre de la base de datos
 Método: GET
 URI: /media/byName/:mediaName
+
+Datos Petición: /media/byName/:mediaName
+
+Datos Respuesta:
+
+  { 
+    _id: [_id],
+    mediaName: [mediaName],
+    url: [url],
+    description: [description],
+    author: [author],
+    genre: [genre],
+    privacy: [privacy]
+  }
+  
 */
 
 ```

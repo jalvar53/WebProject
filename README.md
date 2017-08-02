@@ -142,10 +142,18 @@ que sirve el servidor Apache y se reinicia el servidor Apache:
 ```
   git clone https://github.com/jalvar53/web-intermediate-server.git
   git checkout test
-  npm run start
 ```
 
-10. Acceder a la ruta 10.131.137.157 para usar la aplicación web.
+10. Se instala pm2 y se inicia el servidor intermedio como servicio:
+
+```
+npm install -g pm2
+pm2 start server.js
+pm2 list
+pm2 startup systemd
+```
+
+11. Acceder a la ruta 10.131.137.157 para usar la aplicación web.
 
 
 # 3. Diseño:
